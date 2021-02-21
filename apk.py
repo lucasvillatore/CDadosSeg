@@ -38,10 +38,7 @@ def getApkName(apk):
     return apkName
 
 def printPermissions(apk, permissions):
-
-    print("{}:\n".format(apk, permissions))
-    print(permissions)
-    print("\n")
+    print("{}: {}\n".format(apk, permissions))
 
 def getListOfUniquePermissions(androidApks):
     pass
@@ -68,6 +65,15 @@ def getListOfRepeatedPermissionsInAllApks(repeteadPermissions, apks):
     return permissionRepeteadInAllApks
 
 
+def getListOfUniquePermissionsInAllApks(repeteadPermissions):
+    permissionUniqueInAllApks = {}
+    for permission in repeteadPermissions:
+        if (len(repeteadPermissions[permission]) == 1):
+            permissionUniqueInAllApks[repeteadPermissions[permission].pop()] = permission
+
+    return permissionUniqueInAllApks
+
+
 if __name__ == '__main__':
     files = getFiles()
 
@@ -84,6 +90,13 @@ if __name__ == '__main__':
     print("############ Permissões por APK ############\n")
     for androidApk in androidApks:
         printPermissions(androidApk, androidApks[androidApk])
+
+
+    print("############ Permissões únicas das APKS ############\n")
+    repeteadPermissions = getListOfRepeatedPermissions(androidApks)
+    androidApksPermissionsUnique = getListOfUniquePermissionsInAllApks(repeteadPermissions)
+    for androidApk in androidApksPermissionsUnique:
+        printPermissions(androidApk, androidApksPermissionsUnique[androidApk])
 
 
     print("############ Permissões comuns das APKS ############\n")
