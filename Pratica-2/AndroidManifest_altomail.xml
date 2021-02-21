@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android" package="com.aol.mobile.altomail" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <permission android:name="com.aol.mobile.altomail.permission.UA_DATA" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.aol.mobile.altomail.permission.UA_DATA"/>
+    <permission android:name="com.aol.mobile.altomail.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.aol.mobile.altomail.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE"/>
+    <permission android:name="com.aol.mobile.altomail.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.aol.mobile.altomail.permission.RECEIVE_ADM_MESSAGE"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.aol.mobile.mail.MainApplication" android:resizeableActivity="true" android:theme="@style/AltoTheme">
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_key"/>
+        <activity android:name="net.hockeyapp.android.UpdateActivity"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.aol.mobile.mail.ui.StartActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mailto"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.email.intent.action.REPLY"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:name="com.aol.mobile.mail.ui.signin.AccountChooserActivity" android:theme="@style/AltoThemeFullScreen"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.ui.signin.LoginActivity" android:theme="@style/BaseAltoTheme"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.widget.ImageCropActivity" android:theme="@style/BaseAltoTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:fitsSystemWindows="true" android:launchMode="singleTask" android:name="com.aol.mobile.mail.ui.MainActivity" android:theme="@style/MailAppBaseTheme" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.ui.addressBook.AddressBookActivity"/>
+        <activity android:configChanges="locale|orientation|screenSize" android:name="com.aol.mobile.mail.ui.upgrade.UpgradeFteActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.ui.settings.SettingsAccountActivity" android:theme="@style/MailAppBaseTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:name="com.aol.mobile.moreapps.MoreAppsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:label="@string/settings_activity_label" android:name="com.aol.mobile.mail.ui.settings.SettingsActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:launchMode="singleTop" android:name="com.aol.mobile.mail.ui.compose.ComposeMessageActivity" android:theme="@style/ComposeTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:name="com.aol.mobile.mail.ui.signin.ErrorActivity" android:parentActivityName="com.aol.mobile.mail.ui.signin.LoginActivity"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.ui.MoveToFolderActivity" android:windowActionBar="false" android:windowTitleSize="0.0dip"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.ui.signin.SyncInProgressActivity" android:theme="@style/AltoThemeFullScreen"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.ui.signin.ViewerActivity"/>
+        <activity android:configChanges="locale|orientation" android:launchMode="singleTop" android:name="com.aol.mobile.mail.ui.settings.SettingsSubActivity" android:theme="@style/MailAppBaseTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|orientation" android:launchMode="singleTop" android:name="com.aol.mobile.mail.ui.settings.SettingsSecondaryActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.ui.compose.MultipleAttachmentPickerActivity"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.oauth.CaptchaWebViewActivity"/>
+        <activity android:configChanges="locale|orientation" android:launchMode="singleTop" android:name="com.aol.mobile.mail.ui.folderlist.FoldersEditActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|orientation|screenSize" android:launchMode="singleTop" android:name="com.aol.mobile.mail.ui.upgrade.UpgradeResultActivity" android:theme="@style/AppTranslucentTheme"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.ui.dashboard.SonomaExpandedActivity" android:theme="@style/AppTheme.Translucent"/>
+        <service android:name="com.aol.mobile.mail.models.BackgroundService"/>
+        <provider android:authorities="com.aol.mobile.altomail" android:name="com.aol.mobile.mailcore.provider.Provider" android:writePermission="com.aol.mobile.mail.permission.ACCESS_PROVIDER"/>
+        <provider android:authorities="com.aol.mobile.altomail.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_filepaths"/>
+        </provider>
+        <activity android:name="com.aol.mobile.mail.utils.PrintDialogActivity"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.ui.AttachmentGalleryActivity"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.ui.ContactsActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.stack.StackActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation" android:name="com.aol.mobile.mail.stack.ImagePreviewerActivity" android:screenOrientation="portrait" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:label="@string/title_activity_settings_debug_trace" android:name="com.aol.mobile.mail.ui.settings.SettingsDebugTraceActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:name="com.aol.mobile.mail.ui.settings.ErrorSimulatorActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:name="com.aol.mobile.mail.ui.settings.ErrorCodeActivity" android:theme="@style/MailAppBaseTheme"/>
+        <activity android:configChanges="locale|orientation" android:name="com.aol.mobile.mail.calendar.fte.CalendarFTEActivity" android:theme="@style/MailAppBaseTheme"/>
+        <meta-data android:name="adobeMarketingCloudChannel" android:value="us.aolmail_app"/>
+        <meta-data android:name="adobeMarketingCloudFriendlyName" android:value="AolMail"/>
+        <meta-data android:name="comScoreCustomerId" android:value="1000009"/>
+        <meta-data android:name="comScorePublisherSecret" android:value="602e4df9f54cce62b2eff47013c78008"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="efd8b9685d730ea41ac957a0b3cac52fc09b2cc2"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <receiver android:name="com.aol.mobile.mail.AltoLocaleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.aol.mobile.mail.alarms.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.aol.mobile.altomail.DAILY_ALARM"/>
+                <action android:name="com.aol.mobile.altomail.CARD_ALARM"/>
+                <action android:name="com.aol.mobile.altomail.RESET_ALARMS"/>
+                <action android:name="com.aol.mobile.altomail.UPDATE_CARD_DOI_ALARM"/>
+                <action android:name="com.aol.mobile.altomail.MessageListWidgetProvider.WIDGET_PERIODIC_SYNC_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.aol.mobile.mail.receivers.TimeZoneChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.aol.mobile.mail.receivers.BootCompletedReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.aol.mobile.mail.notifications.UAReceiver">
+            <intent-filter>
+                <action android:name="com.urbanairship.push.RECEIVED"/>
+                <action android:name="com.urbanairship.push.OPENED"/>
+                <action android:name="com.urbanairship.push.CHANNEL_UPDATED"/>
+                <action android:name="com.urbanairship.push.DISMISSED"/>
+                <category android:name="com.aol.mobile.altomail"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_settings_debug_trace" android:name="com.aol.mobile.mail.notifications.CardNotificationActivity" android:taskAffinity="" android:theme="@style/MailAppBaseTheme"/>
+        <service android:name="com.aol.mobile.mail.alarms.AlarmService"/>
+        <service android:name="com.aol.mobile.mail.notifications.PendingIntentService"/>
+        <service android:name="com.aol.mobile.mail.geofences.LocationService"/>
+        <service android:name="com.aol.mobile.mail.geofences.GeoFenceTransitionsIntentService"/>
+        <receiver android:label="@string/app_name" android:name="com.aol.mobile.mail.appwidget.MessageListWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.aol.mobile.altomail.MessageListWidgetProvider.WIDGET_ACTION"/>
+                <action android:name="com.aol.mobile.altomail.MessageListWidgetProvider.WIDGET_COMPOSE_ACTION"/>
+                <action android:name="com.aol.mobile.altomail.MessageListWidgetProvider.WIDGET_ACCOUNT_SETUP_ACTION"/>
+                <action android:name="com.aol.mobile.altomail.MessageListWidgetProvider.UPDATE_WIDGET_ACTION"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/message_list_widget_info"/>
+        </receiver>
+        <service android:name="com.aol.mobile.mail.appwidget.MessageListWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:name="com.aol.mobile.mail.appwidget.MessageListWidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aol.mobile.mail.ui.LoginCodeActivity"/>
+        <activity android:name="com.aol.mobile.mail.ui.LoginScanActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/com.aol.mobile.altomail"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.fiksu.asotracking.InstallTracking">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <meta-data android:name="forward.1" android:value="com.aol.mobile.mail.AltoInstallReceiver"/>
+        </receiver>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.aol.mobile.mail.ui.signin.AuthorizationManagementActivity"/>
+        <activity android:name="com.aol.mobile.mail.ui.signin.AuthorizationRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="oauth2redirect" android:scheme="altomail"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="false" android:label="Segments Service" android:name="com.urbanairship.location.LocationService"/>
+        <activity android:label="@string/passcode_action_settings" android:launchMode="singleTop" android:name="com.aol.mobile.mail.applock.AltoAppLockPreferenceActivity" android:parentActivityName="com.aol.mobile.mail.ui.settings.SettingsActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.aol.mobile.mail.applock.PasscodeManagePasswordActivity" android:theme="@style/AppScreenLockTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.aol.mobile.mail.applock.PasscodeUnlockActivity" android:theme="@style/AppScreenLockTheme" android:windowSoftInputMode="stateHidden"/>
+        <meta-data android:name="android.support.VERSION" android:value="25.4.0"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="net.hockeyapp.android.LoginActivity"/>
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity"/>
+        <amazon:enable-feature android:name="com.amazon.device.messaging" android:required="false"/>
+        <activity android:name="com.urbanairship.util.HelperActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.urbanairship.CoreActivity"/>
+        <activity android:name="com.urbanairship.google.PlayServicesErrorActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.urbanairship.messagecenter.MessageActivity"/>
+        <activity android:label="@string/ua_message_center_title" android:name="com.urbanairship.messagecenter.MessageCenterActivity"/>
+        <activity android:exported="false" android:name="com.urbanairship.actions.LandingPageActivity" android:theme="@style/LandingPageStyle">
+            <meta-data android:name="com.urbanairship.action.LANDING_PAGE_VIEW" android:resource="@layout/ua_activity_landing_page"/>
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+            <intent-filter>
+                <action android:name="com.urbanairship.actions.SHOW_LANDING_PAGE_INTENT_ACTION"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="message"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.urbanairship.AirshipService"/>
+        <service android:name="com.urbanairship.actions.ActionService"/>
+        <service android:exported="false" android:name="com.urbanairship.push.UAInstanceIDListenerService">
+            <intent-filter android:priority="-999">
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.urbanairship.CoreReceiver">
+            <intent-filter android:priority="-999">
+                <action android:name="com.urbanairship.push.OPENED"/>
+                <category android:name="com.aol.mobile.altomail"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.urbanairship.push.GcmPushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="-999">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.aol.mobile.altomail"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.urbanairship.push.AdmPushReceiver" android:permission="com.amazon.device.messaging.permission.SEND">
+            <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
+                <category android:name="com.aol.mobile.altomail"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.aol.mobile.altomail.urbanairship.provider" android:exported="true" android:name="com.urbanairship.UrbanAirshipProvider" android:permission="com.aol.mobile.altomail.permission.UA_DATA"/>
+        <receiver android:name="com.tune.TuneTracker">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
