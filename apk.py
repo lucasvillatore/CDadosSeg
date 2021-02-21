@@ -39,10 +39,34 @@ def getApkName(apk):
 
 def printPermissions(apk, permissions):
 
-    apkName = getApkName(apk)
-    print("{}:\n".format(apkName, permissions))
+    print("{}:\n".format(apk, permissions))
     print(permissions)
     print("\n")
+
+def getListOfUniquePermissions(androidApks):
+    pass
+
+def getListOfRepeatedPermissions(androidApks):
+    androidPermissions = {}
+    for androidApk in androidApks:
+        for apkPermission in androidApks[androidApk]:
+            try:
+                if (androidApk not in androidPermissions[apkPermission]):
+                    androidPermissions[apkPermission].append(androidApk)
+            except:
+                androidPermissions[apkPermission] = [androidApk]
+    return androidPermissions
+
+def getListOfRepeatedPermissionsInAllApks(repeteadPermissions, apks):
+    numberOfApks = len(apks)
+
+    permissionRepeteadInAllApks = []
+    for permission in repeteadPermissions:
+        if (len(repeteadPermissions[permission]) == numberOfApks):
+            permissionRepeteadInAllApks.append(permission)
+
+    return permissionRepeteadInAllApks
+
 
 if __name__ == '__main__':
     files = getFiles()
@@ -52,9 +76,16 @@ if __name__ == '__main__':
     for apk in files:
         file = open(apk, "r")
         fileDict = fileXmlToDict(file)
-        androidApks[apk] = {}
-        androidApks[apk] = getPermissions(fileDict)
+        
+        apkName = getApkName(apk)
+        androidApks[apkName] = {}
+        androidApks[apkName] = getPermissions(fileDict)
 
     print("############ Permissões por APK ############\n")
     for androidApk in androidApks:
         printPermissions(androidApk, androidApks[androidApk])
+
+
+    print("############ Permissões comuns das APKS ############\n")
+    repeteadPermissions = getListOfRepeatedPermissions(androidApks)
+    print(getListOfRepeatedPermissionsInAllApks(repeteadPermissions, files))
