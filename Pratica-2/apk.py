@@ -99,9 +99,9 @@ if __name__ == '__main__':
 
     print("############ Permissões únicas das APKS ############\n")
     repeteadPermissions = getListOfRepeatedPermissions(androidApks)
-    androidApksPermissionsUnique = getListOfUniquePermissionsInAllApks(repeteadPermissions)
-    for androidApk in androidApksPermissionsUnique:
-        printPermissions(androidApk, androidApksPermissionsUnique[androidApk])
+    androidApksUniquePermissons = getListOfUniquePermissionsInAllApks(repeteadPermissions)
+    for androidApk in androidApksUniquePermissons:
+        printPermissions(androidApk, androidApksUniquePermissons[androidApk])
 
 
     print("############ Permissões comuns das APKS ############\n")
