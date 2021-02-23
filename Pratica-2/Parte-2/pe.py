@@ -1,9 +1,8 @@
 from os import listdir
 from os.path import isfile, join
 import re
-import xmltodict
-import json
 import argparse
+import pefile
 
 def getArguments():
     parser = argparse.ArgumentParser()
@@ -21,8 +20,13 @@ def getFiles(path):
 
     return onlyExes
 
-if __name__ == '__name__':
+if __name__ == '__main__':
     arguments = getArguments()
     files = getFiles(arguments.path)
-
-    
+    # print (files)
+    # exit()
+    # files = './calc.exe'
+    for f in files:
+        pe = pefile.PE(f)
+        for section in pe.sections:
+            print(section.Name.decode('utf-8'))
