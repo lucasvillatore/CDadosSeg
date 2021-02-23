@@ -30,7 +30,7 @@ def getSections(file):
     return sections
 
 def printSectionFronFiles(filesSectionsDict):
-    print ("######## SEÇÕES ########\n")
+    print ("######## SEÇÕES EXECUTAVEIS ########\n")
     for binary in filesSectionsDict:
         executableSections = getExecutables(filesSectionsDict[binary])
         print("Binary: {} - Sections : {}\n".format(binary, executableSections))
