@@ -48,7 +48,7 @@ Exemplo:
 
 
 
-Ou para melhor demonstração, alterei o nome de algumas seções do segundo arquivo para imprimir haver diferenciações
+Ou para melhor demonstração, alterei o nome de algumas seções do segundo arquivo para imprimir as diferenciações únicas
 
 ```
 ######## Seções comuns entre os binários calc copy.exe e calc.exe ########
