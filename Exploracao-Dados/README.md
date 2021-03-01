@@ -10,7 +10,7 @@ Esse dataset é disponibilizado nesse link: https://www.kaggle.com/devendra416/d
   Esse dataset possui dados majoritariamente númericos, como por exemplo IP's, portas, número de bytes de sobre algum dado ou dados relacionados a tempo.
 
 - Qual seu objetivo com esse dataset?
-  Conseguir descobrir tendências para com ataques de DDoS, como por exemplo horário mais prováveis de ocorrer um ataque ou também poder prever ataques.
+  Conseguir descobrir tendências de ataques, como por exemplo horário mais prováveis de ocorrer um ataque DDoS, qual a duranção dele, qual foi o tipo de ataque.
 
   
 
