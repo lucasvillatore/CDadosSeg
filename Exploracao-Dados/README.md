@@ -16,14 +16,16 @@ Esse dataset é disponibilizado nesse link: https://www.kaggle.com/devendra416/d
 
 - Seu dataset é rotulado de que maneira?
   
+  O dataset já veio rotulado
 
-  
+
 
 - Como é a distribuição dos dados do dataset?
   
-
-
-
+  O dataset está dividido quase 50% entre acessos para ocasionar um DDoS e acessos de usuários comuns.
+  
+  
+  
 - Quais colunas/atributos você julga ser interessante manter e remover? Por quê?
   Flow ID,
   Src IP - Source IP,
@@ -37,6 +39,7 @@ Esse dataset é disponibilizado nesse link: https://www.kaggle.com/devendra416/d
   Label - Label
 
 
+Acredito que essas colunas possam ajudar melhor no nosso objetivo, tentar detectar quando está ocorrendo/vai acontecer um DDos, qual tipo de ataque, a duração dele e se pode acontecer em um horário específico.
 
 Abaixo podemos ver os campos presentes, os campos dados como mais importantes estão destacados em negrito. São estes:
 
@@ -123,4 +126,4 @@ Abaixo podemos ver os campos presentes, os campos dados como mais importantes es
 - Idle Std
 - Idle Max
 - Idle Min
-- Label
+- **Label**
